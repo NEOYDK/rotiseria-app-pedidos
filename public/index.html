@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es-AR" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Lo de Tito · Pedí comida casera en Paraná — App de demostración</title>
+  <meta name="description" content="App de pedidos de Lo de Tito, rotisería de Paraná: milanesas, pollo al spiedo, pizzas y empanadas. Pedí con delivery o para retirar, pagá como quieras y seguí tu pedido en vivo. (Demostración)">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#120d0a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="App de pedidos para rotiserías y restaurantes, sin comisiones">
+  <meta property="og:description" content="Demo: el cliente pide desde la app y el local lo recibe en su panel al instante, con cocina, repartos y cobros. Se instala en el celular.">
+  <meta property="og:image" content="https://rotiseria-demo-ydk.pages.dev/assets/img/og.jpg?v=4">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/icons/tito-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/tito-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Lo de Tito">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <!-- la primera foto de "Lo más pedido" (la milanesa): que arranque a bajar antes que llegue el menú -->
+  <link rel="preload" as="image" href="/assets/img/milanesa.webp" fetchpriority="high">
+  <link rel="preload" href="/assets/fonts/inter-f11d729bb0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/fraunces-48642176d9.woff2" as="font" type="font/woff2" crossorigin>
+  <style data-fuentes>
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-b27569daf1.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-87dbe96887.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-0f55e2505b.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-48642176d9.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/fraunces-0f55e2505b.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/fraunces-48642176d9.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/inter-cf3eb50fb2.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/inter-f11d729bb0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/inter-cf3eb50fb2.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/inter-f11d729bb0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/inter-cf3eb50fb2.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/inter-f11d729bb0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  </style>
+  <link rel="stylesheet" href="app.css?v=20261028a">
+</head>
+<body>
+  <a class="salto" href="#contenido">Saltar al menú</a>
+  <p class="cinta-demo" data-cinta>Demo de Yardak · <a href="/panel/" data-ir-panel>Abrí el panel del local</a> y mirá cómo te llegan los pedidos</p>
+
+  <header class="top" data-top>
+    <div class="top-in">
+      <a class="marca" href="#menu" data-tab-ir="menu">
+        <span class="logo" aria-hidden="true"><img src="/assets/icons/tito-192.png" alt="" width="40" height="40"></span>
+        <span><span class="marca-nom">Lo de <em>Tito</em></span><span class="marca-sub" data-estado-local>Rotisería · Paraná</span></span>
+      </a>
+      <button class="btn-instalar" type="button" data-instalar hidden>Instalar app</button>
+    </div>
+    <div class="modo" role="radiogroup" aria-label="¿Cómo lo querés?">
+      <label><input type="radio" name="modo" value="delivery" checked><span>Delivery <small data-modo-info="delivery"></small></span></label>
+      <label><input type="radio" name="modo" value="retiro"><span>Retiro <small data-modo-info="retiro"></small></span></label>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- MENÚ -->
+    <section class="pantalla" id="menu" data-pantalla="menu" aria-label="Menú">
+      <p class="aviso-cerrado" data-cerrado hidden>El local está cerrado ahora. Podés mirar el menú; los pedidos se toman de 11 a 15 h y de 19:30 a 23:30 h.</p>
+      <div class="destacados-wrap">
+        <h1 class="tit">Comida casera, <em>en la puerta de tu casa.</em></h1>
+        <p class="tit-sub">Pedí acá, seguilo en vivo y pagá como quieras.</p>
+        <div class="destacados" data-destacados aria-label="Lo más pedido"><!-- los 3 destacados ya escritos (precios del menú base): se ven al instante; el menú del local los actualiza al llegar --><button type="button" class="dest" data-plato="mila"><img src="/assets/img/milanesa.webp" alt="" width="260" height="170" fetchpriority="high"><span class="dest-nom">Milanesa napolitana con papas</span><span class="dest-p">$ 15.500</span></button><button type="button" class="dest" data-plato="pollo"><img src="/assets/img/pollo.webp" alt="" width="260" height="170" decoding="async"><span class="dest-nom">Pollo al spiedo entero</span><span class="dest-p">$ 16.000</span></button><button type="button" class="dest" data-plato="muzza"><img src="/assets/img/pizza.webp" alt="" width="260" height="170" decoding="async"><span class="dest-nom">Pizza de muzzarella</span><span class="dest-p">$ 12.000</span></button></div>
+      </div>
+      <div class="buscar-wrap">
+        <label class="sr-only" for="buscar">Buscar en el menú</label>
+        <input id="buscar" type="search" placeholder="Buscá milanesa, empanadas, flan…" autocomplete="off" data-buscar>
+      </div>
+      <nav class="cats" data-cats aria-label="Categorías del menú"></nav>
+      <div class="menu" data-menu><p class="cargando">Cargando el menú…</p></div>
+      <p class="sin-resultados" data-sin-resultados hidden>No encontramos eso en el menú. Probá con otra palabra.</p>
+    </section>
+
+    <!-- MIS PEDIDOS -->
+    <section class="pantalla" data-pantalla="pedidos" aria-label="Mis pedidos" hidden>
+      <h1 class="tit">Mis <em>pedidos</em></h1>
+      <div class="mis-pedidos" data-mis-pedidos></div>
+    </section>
+
+    <!-- EL LOCAL -->
+    <section class="pantalla" data-pantalla="local" aria-label="El local" hidden>
+      <div class="local-foto"><img src="/assets/img/pollo.webp" alt="Pollo al spiedo de Lo de Tito" width="900" height="598" loading="lazy"></div>
+      <h1 class="tit">Lo de <em>Tito</em></h1>
+      <p class="tit-sub">Rotisería de barrio en Paraná. Cocinamos todos los días, como en casa.</p>
+      <ul class="datos-local">
+        <li><b>Horarios</b><span>Todos los días de 11 a 15 h y de 19:30 a 23:30 h</span></li>
+        <li><b>Dirección</b><span>Calle de ejemplo 123, Paraná · retiro en el mostrador</span></li>
+        <li><b>Delivery</b><span>Centro y barrios cercanos · envío $ <span data-envio-local>1.500</span></span></li>
+        <li><b>Pagos</b><span>Efectivo, transferencia y Mercado Pago</span></li>
+      </ul>
+      <div class="botones-local">
+        <a class="btn btn-wa" href="#" data-wa-local>Escribinos por WhatsApp</a>
+        <button class="btn btn-borde" type="button" data-open-chat>Preguntale a Tito</button>
+      </div>
+      <div class="tarjeta-instalar" data-tarjeta-instalar>
+        <p class="tarjeta-tit">Tené la app en tu celular</p>
+        <p>Se instala en 2 toques, sin bajar nada de la tienda de apps, y la abrís como cualquier otra.</p>
+        <button class="btn btn-ambar" type="button" data-instalar-2>Instalar Lo de Tito</button>
+      </div>
+      <div class="tarjeta-yardak">
+        <p class="tarjeta-tit">¿Tenés un local de comida?</p>
+        <p>Esta app es una demo: el pedido te llega a un panel donde aceptás, cocinás, despachás y cobrás. Sin comisiones por venta.</p>
+        <div class="fila-botones"><a class="btn btn-ambar" href="/panel/" data-ir-panel>Ver el panel del local</a><a class="btn btn-borde" href="#" data-maker>Quiero una app así</a></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Barra del pedido -->
+  <div class="barra" data-barra hidden>
+    <button class="barra-btn" type="button" data-abrir-carrito>
+      <span class="barra-cant" data-barra-cant>0</span>
+      <span>Ver mi pedido</span>
+      <b data-barra-total>$ 0</b>
+    </button>
+  </div>
+
+  <!-- Pestañas de abajo -->
+  <nav class="tabs" aria-label="Secciones de la app">
+    <button type="button" data-tab="menu" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16a8 8 0 0 1-16 0zM2 11h20M9 7c0-1.5 1-2 1-3.5M13 7c0-1.5 1-2 1-3.5"/></svg>Menú</button>
+    <button type="button" data-tab="pedidos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg>Mis pedidos<span class="tab-punto" data-tab-punto hidden></span></button>
+    <button type="button" data-tab="local"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 12 3l9 7v10H3zM9 20v-6h6v6"/></svg>El local</button>
+  </nav>
+
+  <!-- Hoja del plato -->
+  <div class="velo" data-velo hidden></div>
+  <section class="hoja" data-hoja="plato" role="dialog" aria-modal="true" aria-labelledby="plato-tit" hidden>
+    <button class="hoja-cerrar" type="button" data-cerrar-hoja aria-label="Cerrar">×</button>
+    <div class="hoja-scroll">
+      <img class="plato-foto" data-plato-foto src="" alt="" width="800" height="526">
+      <div class="hoja-in">
+        <h2 id="plato-tit" class="plato-tit" data-plato-tit></h2>
+        <p class="plato-desc" data-plato-desc></p>
+        <p class="plato-precio" data-plato-precio></p>
+        <div data-plato-opciones></div>
+        <label class="campo" for="plato-nota"><span>¿Algo para la cocina? <small>(opcional)</small></span>
+          <input id="plato-nota" maxlength="80" placeholder="Ej.: sin cebolla, bien cocida" autocomplete="off"></label>
+      </div>
+    </div>
+    <div class="hoja-pie">
+      <div class="paso" role="group" aria-label="Cantidad"><button type="button" data-plato-menos aria-label="Uno menos">−</button><output data-plato-cant>1</output><button type="button" data-plato-mas aria-label="Uno más">+</button></div>
+      <button class="btn btn-ambar btn-grande" type="button" data-plato-agregar>Agregar</button>
+    </div>
+  </section>
+
+  <!-- Tu pedido -->
+  <section class="hoja hoja-alta" data-hoja="carrito" role="dialog" aria-modal="true" aria-labelledby="carrito-tit" hidden>
+    <header class="hoja-cab"><h2 id="carrito-tit">Tu pedido</h2><button class="hoja-cerrar-cab" type="button" data-cerrar-hoja aria-label="Cerrar">×</button></header>
+    <form class="hoja-scroll" data-form-pedido novalidate>
+      <div class="hoja-in">
+        <ul class="lineas" data-lineas></ul>
+        <button class="link" type="button" data-seguir-pidiendo>+ Agregar más cosas</button>
+
+        <fieldset class="bloque">
+          <legend>¿Cómo lo querés?</legend>
+          <div class="opciones-grandes">
+            <label><input type="radio" name="tipo" value="delivery" checked><span><b>Delivery</b><small data-tipo-info="delivery"></small></span></label>
+            <label><input type="radio" name="tipo" value="retiro"><span><b>Lo retiro</b><small data-tipo-info="retiro"></small></span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="bloque">
+          <legend>Tus datos</legend>
+          <label class="campo" for="p-nombre"><span>Nombre</span><input id="p-nombre" name="nombre" autocomplete="given-name" maxlength="40" required></label>
+          <label class="campo" for="p-tel"><span>Teléfono</span><input id="p-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" placeholder="343 412 3456" required></label>
+          <label class="campo" for="p-dir" data-campo-dir><span>Dirección y referencias</span><input id="p-dir" name="direccion" autocomplete="street-address" maxlength="120" placeholder="Ej.: Urquiza 1240, timbre 3"></label>
+        </fieldset>
+
+        <fieldset class="bloque">
+          <legend>¿Cómo pagás?</legend>
+          <div class="opciones-grandes opciones-3">
+            <label><input type="radio" name="pago" value="efectivo" checked><span><b>Efectivo</b><small>Al recibir</small></span></label>
+            <label><input type="radio" name="pago" value="transferencia"><span><b>Transferencia</b><small>Al alias del local</small></span></label>
+            <label><input type="radio" name="pago" value="mercadopago"><span><b>Mercado Pago</b><small>Tarjeta o dinero</small></span></label>
+          </div>
+          <label class="campo" for="p-vuelto" data-campo-vuelto><span>¿Con cuánto pagás? <small>(para llevarte el vuelto)</small></span>
+            <select id="p-vuelto" name="pagaCon" data-vuelto></select></label>
+        </fieldset>
+
+        <label class="campo" for="p-notas"><span>Notas para el local <small>(opcional)</small></span>
+          <input id="p-notas" name="notas" maxlength="200" placeholder="Ej.: tocar timbre, sin servilletas" autocomplete="off"></label>
+
+        <dl class="totales" data-totales></dl>
+        <ul class="errores" data-errores hidden></ul>
+        <p class="nota-demo">Demo: no pongas datos reales. El pedido llega a tu <a href="/panel/" data-ir-panel>panel de prueba</a>.</p>
+      </div>
+      <div class="hoja-pie">
+        <button class="btn btn-ambar btn-grande btn-ancho" type="submit" data-confirmar>Confirmar pedido</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Seguimiento del pedido -->
+  <section class="seguir" data-seguir role="dialog" aria-modal="true" aria-labelledby="seguir-tit" hidden>
+    <header class="seguir-cab">
+      <button class="ficha-volver" type="button" data-cerrar-seguir aria-label="Volver"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <h2 id="seguir-tit">Pedido <span data-s-numero></span></h2>
+      <span class="vivo"><i></i>En vivo</span>
+    </header>
+    <div class="seguir-scroll">
+      <div class="estado-grande" data-s-estado>
+        <div class="estado-ico" data-s-ico aria-hidden="true"></div>
+        <p class="estado-tit" data-s-tit></p>
+        <p class="estado-txt" data-s-txt></p>
+      </div>
+      <ol class="pasos" data-s-pasos></ol>
+      <div class="caja-pago" data-s-pago></div>
+      <div class="caja">
+        <p class="caja-tit">Tu pedido</p>
+        <ul class="lineas lineas-chicas" data-s-items></ul>
+        <dl class="totales" data-s-totales></dl>
+        <p class="s-entrega" data-s-entrega></p>
+      </div>
+      <div class="fila-botones">
+        <button class="btn btn-ambar" type="button" data-s-charla><svg class="ico-charla" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg>Chat con el local<span class="charla-n" data-s-charla-n hidden></span></button>
+        <a class="btn btn-wa" href="#" data-s-wa>WhatsApp</a>
+        <button class="btn btn-borde" type="button" data-s-repetir hidden>Pedir lo mismo otra vez</button>
+      </div>
+      <button class="link link-centro" type="button" data-s-avisos hidden>Avisame cuando cambie</button>
+    </div>
+  </section>
+
+  <!-- Instrucciones para instalar en iPhone -->
+  <section class="hoja" data-hoja="ios" role="dialog" aria-modal="true" aria-labelledby="ios-tit" hidden>
+    <button class="hoja-cerrar" type="button" data-cerrar-hoja aria-label="Cerrar">×</button>
+    <div class="hoja-in hoja-ios">
+      <h2 id="ios-tit" class="plato-tit">Instalá la app en tu iPhone</h2>
+      <ol class="ios-pasos">
+        <li>Tocá el botón <b>Compartir</b> de Safari (el cuadrado con la flecha).</li>
+        <li>Elegí <b>Agregar a inicio</b>.</li>
+        <li>Listo: Lo de Tito queda con su ícono, como cualquier app.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Asistente -->
+  <section class="chat" data-chat hidden aria-label="Asistente de la rotisería">
+    <header class="chat-head"><div><p class="chat-name">Tito · Asistente</p><p class="chat-status"><span class="dot" aria-hidden="true"></span> Responde al instante</p></div><button class="chat-close" type="button" data-close-chat aria-label="Cerrar">×</button></header>
+    <div class="chat-log" data-chat-log aria-live="polite"><p class="msg msg-bot">¡Hola! Soy Tito, el asistente de Lo de Tito. Te cuento qué hay en el menú, hasta qué hora hacemos delivery y cómo pagar. ¿Qué tenés ganas de comer?</p></div>
+    <div class="chat-suggest" data-chat-suggest><button type="button">¿Hacen delivery a mi barrio?</button><button type="button">¿Qué me recomendás para 4?</button><button type="button">¿Las empanadas son fritas?</button></div>
+    <form class="chat-form" data-chat-form><label class="sr-only" for="chat-input">Escribí tu consulta</label><input id="chat-input" autocomplete="off" maxlength="500" placeholder="Escribí tu consulta…"><button type="submit" aria-label="Enviar">➤</button></form>
+    <a class="chat-wa" href="#menu" data-close-chat data-tab-ir="menu">Ir al menú y pedir</a>
+  </section>
+
+  <p class="toast" data-toast role="status" hidden></p>
+  <button class="aviso-app" type="button" data-aviso-app hidden><b data-aviso-tit></b><span data-aviso-txt></span><small>Tocá para ver</small></button>
+
+  <script defer src="lib/manifest.js?v=20261026"></script>
+  <script defer src="lib/chat.js?v=20261026"></script>
+  <script defer src="lib/charla.js?v=20261027"></script>
+  <script defer src="app.js?v=20261027"></script>
+</body>
+</html>

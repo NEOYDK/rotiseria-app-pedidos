@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es-AR" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pagar tu pedido · Lo de Tito</title>
+  <meta name="description" content="Pagá tu pedido de Lo de Tito con Mercado Pago o por transferencia. (Sitio de demostración)">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#120d0a">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pagá tu pedido de Lo de Tito">
+  <meta property="og:description" content="Con Mercado Pago o por transferencia, en un minuto.">
+  <meta property="og:image" content="https://rotiseria-demo-ydk.pages.dev/assets/img/og.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e8a33d'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia' font-style='italic' font-size='34' fill='%23120d0a'%3ET%3C/text%3E%3C/svg%3E">
+  <link rel="preload" href="/assets/fonts/inter-f11d729bb0.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/fraunces-48642176d9.woff2" as="font" type="font/woff2" crossorigin>
+  <style data-fuentes>
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-b27569daf1.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-87dbe96887.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-0f55e2505b.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-48642176d9.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/fraunces-0f55e2505b.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/fraunces-48642176d9.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/inter-cf3eb50fb2.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/inter-f11d729bb0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/inter-cf3eb50fb2.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/inter-f11d729bb0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/inter-cf3eb50fb2.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/inter-f11d729bb0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  </style>
+  <link rel="stylesheet" href="styles.css?v=20261019">
+</head>
+<body>
+  <div class="demo-bar" role="note">Demo · No se cobra ni se entrega comida de verdad</div>
+
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="./">Lo de <em>Tito</em></a>
+      <a class="btn btn-ghost btn-sm" href="./#menu" data-edit>Cambiar pedido</a>
+    </div>
+  </header>
+
+  <main class="container pagar">
+    <noscript><p class="pagar-loading">Para pagar necesitás tener JavaScript activado. También podés pedir por WhatsApp desde el menú.</p></noscript>
+    <p class="pagar-loading" data-loading>Cargando tu pedido…</p>
+
+    <!-- Link roto o pedido vacío -->
+    <section class="pagar-card pagar-center" data-empty hidden>
+      <p class="pay-icon">🤔</p>
+      <h1 class="pagar-h1">No encontramos el pedido</h1>
+      <p class="pay-text">El link está incompleto. Armá tu pedido en el menú o pedinos el link de nuevo por WhatsApp.</p>
+      <a class="btn btn-amber btn-block" href="./#menu">Ir al menú</a>
+    </section>
+
+    <!-- Al volver de Mercado Pago -->
+    <section class="pagar-card pagar-center" data-result hidden role="status" aria-live="polite">
+      <p class="pay-icon" data-result-icon>⏳</p>
+      <h2 class="pagar-h1" data-result-title>Revisando tu pago…</h2>
+      <p class="pay-text" data-result-text>Un segundo, estamos confirmando con Mercado Pago.</p>
+      <a class="btn btn-amber btn-block" href="#" data-result-wa hidden>Avisar el pedido por WhatsApp</a>
+      <a class="btn btn-ghost btn-block" href="./" data-result-back hidden>Volver al menú</a>
+    </section>
+
+    <div data-checkout hidden>
+      <p class="kicker">Pagar pedido</p>
+      <h1 class="pagar-title">Total a pagar: <em data-total>$ 0</em></h1>
+
+      <section class="pagar-card">
+        <h2 class="pagar-h">Tu pedido</h2>
+        <ul class="order-lines" data-lines></ul>
+        <p class="order-total">Total <strong data-total>$ 0</strong></p>
+        <p class="pagar-who" data-who hidden></p>
+      </section>
+
+      <fieldset class="medios">
+        <legend class="pagar-h">¿Cómo querés pagar?</legend>
+        <label class="medio"><input type="radio" name="medio" value="mercadopago" checked><span><strong>Mercado Pago</strong><small>Tarjeta, débito o dinero en cuenta</small></span></label>
+        <label class="medio"><input type="radio" name="medio" value="transferencia"><span><strong>Transferencia</strong><small>Desde cualquier banco o billetera</small></span></label>
+      </fieldset>
+
+      <section class="pagar-card" data-panel="mercadopago">
+        <p class="pay-text">Te llevamos a Mercado Pago para pagar seguro. Cuando termines, volvés a esta página.</p>
+        <button class="btn btn-amber btn-block" type="button" data-mp>Pagar con Mercado Pago</button>
+        <p class="form-error" data-mp-error hidden></p>
+        <button class="link-btn" type="button" data-to-transfer>¿No tenés Mercado Pago? Pagá por transferencia</button>
+        <p class="fine">Demo: Mercado Pago está en modo de prueba.</p>
+      </section>
+
+      <section class="pagar-card" data-panel="transferencia" hidden>
+        <ol class="pasos">
+          <li>Copiá el alias y transferí <strong data-total>$ 0</strong> desde tu banco o billetera.</li>
+          <li>Mandanos el comprobante por WhatsApp y empezamos a preparar tu pedido.</li>
+        </ol>
+        <div class="dato"><span>Alias</span><strong data-alias>yardakdev</strong><button class="copy" type="button" data-copy="alias">Copiar</button></div>
+        <div class="dato"><span>Monto</span><strong data-total>$ 0</strong><button class="copy" type="button" data-copy="monto">Copiar</button></div>
+        <a class="btn btn-amber btn-block" href="#" data-transfer-wa>Ya transferí: enviar comprobante</a>
+        <p class="fine">Es una demo: no hagas transferencias reales. En la web de tu local va tu propio alias.</p>
+      </section>
+    </div>
+  </main>
+
+  <script defer src="lib/manifest.js?v=20261019"></script>
+  <script defer src="pagar.js?v=20261021"></script>
+</body>
+</html>

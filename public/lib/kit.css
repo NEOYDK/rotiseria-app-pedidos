@@ -1,0 +1,83 @@
+/* =============================================================
+   Kit Yardak para las demos (se copia en public/lib/kit.css de cada una).
+   Barra de progreso, apariciones al bajar, números que cuentan, preguntas
+   que se abren con animación, globo del asistente que habla y bloque de contacto.
+   Liviano: solo anima opacidad y movimiento (nada de desenfoques).
+   Cada demo define sus colores en :root:
+     --k-acento, --k-acento-2 (degradé), --k-texto, --k-mute, --k-superficie,
+     --k-borde, --k-titulos (letra de los títulos), --k-radio (esquinas)
+   ============================================================= */
+:root {
+  --k-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --k-wa: #25d366;
+  --k-radio: 14px;
+}
+
+/* Barra que se llena arriba al bajar */
+.k-progreso { position: fixed; inset: 0 0 auto 0; height: 3px; z-index: 100; transform-origin: 0 50%; transform: scaleX(0); pointer-events: none;
+  background: linear-gradient(90deg, var(--k-acento-2), var(--k-acento)); box-shadow: 0 0 10px color-mix(in srgb, var(--k-acento) 65%, transparent); }
+
+/* Texto con degradé (la segunda línea de los títulos) */
+.k-grad { -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent;
+  background-image: linear-gradient(92deg, var(--k-acento-2), var(--k-acento)); padding-right: .08em; }
+
+/* Apariciones al bajar */
+[data-k] { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--k-ease), transform .8s var(--k-ease); }
+[data-k].k-visible, .no-js [data-k] { opacity: 1; transform: none; }
+
+/* Números destacados */
+.k-numeros { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px;
+  border: 1px solid var(--k-borde); border-radius: var(--k-radio); overflow: hidden; background: var(--k-borde); }
+.k-numeros li { background: var(--k-superficie); padding: 1rem .8rem; display: grid; gap: .15rem; text-align: center; }
+.k-numeros b { font-family: var(--k-titulos); font-size: 1.9rem; line-height: 1; justify-self: center; }
+.k-numeros span { font-size: .84rem; color: var(--k-mute); line-height: 1.35; }
+@media (min-width: 640px) { .k-numeros { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+
+/* Preguntas frecuentes (se usan con <details>; kit.js agrega la animación) */
+.k-faq { display: grid; gap: .6rem; }
+.k-faq details { border: 1px solid var(--k-borde); border-radius: var(--k-radio); background: var(--k-superficie); transition: border-color .3s, box-shadow .3s; }
+.k-faq details[open] { border-color: color-mix(in srgb, var(--k-acento) 55%, transparent); box-shadow: 0 10px 30px -18px color-mix(in srgb, var(--k-acento) 70%, transparent); }
+.k-faq summary { list-style: none; cursor: pointer; min-height: 54px; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .85rem 1.1rem; font-weight: 600; }
+.k-faq summary::-webkit-details-marker { display: none; }
+.k-faq summary::after { content: "+"; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; font-size: 1.2rem; line-height: 1;
+  color: var(--k-acento); background: color-mix(in srgb, var(--k-acento) 12%, transparent); transition: transform .35s var(--k-ease); }
+.k-faq details[open] summary::after { transform: rotate(45deg); }
+.k-faq .k-faq-cuerpo { overflow: hidden; }
+.k-faq .k-faq-cuerpo > * { padding: 0 1.1rem 1.1rem; margin: 0; color: var(--k-mute); }
+
+/* Bloque de contacto final: WhatsApp, Instagram y chips */
+.k-contacto { position: relative; isolation: isolate; text-align: center; padding: 4.5rem 0 5rem; overflow: clip; }
+.k-contacto::before { content: ""; position: absolute; z-index: -1; left: 50%; top: 50%; width: 760px; height: 760px; margin: -380px 0 0 -380px; border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--k-acento) 22%, transparent), transparent 62%); pointer-events: none; }
+.k-contacto .k-in { width: min(820px, 100% - 2.5rem); margin-inline: auto; display: grid; justify-items: center; gap: 1.1rem; }
+.k-contacto h2 { font-family: var(--k-titulos); line-height: 1; margin: 0; }
+.k-contacto h2 span { display: block; }
+.k-contacto p { color: var(--k-mute); max-width: 56ch; margin: 0; }
+.k-botones { display: grid; gap: .7rem; width: 100%; margin-top: .4rem; }
+@media (min-width: 560px) { .k-botones { grid-template-columns: 1fr 1fr; } }
+.k-btn { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; min-height: 54px; padding: .9rem 1.4rem; border-radius: 12px; font-weight: 700; font-size: 1rem; text-decoration: none;
+  transition: transform .3s var(--k-ease), box-shadow .3s var(--k-ease); }
+.k-btn svg { width: 22px; height: 22px; fill: currentColor; flex-shrink: 0; }
+.k-btn-wa { background: var(--k-wa); color: #06210f; box-shadow: 0 10px 30px -12px rgba(37, 211, 102, .75); }
+.k-btn-ig { background: linear-gradient(100deg, var(--k-acento-2), var(--k-acento)); color: #fff; box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--k-acento) 80%, transparent); }
+.k-chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; }
+.k-chips li { font-size: .84rem; color: var(--k-mute); border: 1px solid var(--k-borde); background: var(--k-superficie); border-radius: 999px; padding: .5rem .9rem; }
+
+/* Globo del asistente: dice algo al pasarle el mouse (y en el celu, una vez solo) */
+.k-tip { position: absolute; right: calc(100% + 12px); top: 50%; transform: translate(10px, -50%); white-space: nowrap; pointer-events: none; z-index: 1;
+  font: 600 .9rem/1.2 system-ui, sans-serif; color: #111; background: #fff; padding: .6rem .85rem; border-radius: 12px; box-shadow: 0 12px 30px -10px rgba(0, 0, 0, .45);
+  opacity: 0; transition: opacity .3s, transform .4s var(--k-ease); }
+.k-tip::after { content: ""; position: absolute; right: -6px; top: 50%; margin-top: -6px; border: 6px solid transparent; border-right: 0; border-left-color: #fff; }
+.k-fab { position: fixed; }
+.k-fab.k-tip-on .k-tip, .k-fab:focus-visible .k-tip { opacity: 1; transform: translate(0, -50%); }
+@media (max-width: 420px) { .k-tip { white-space: normal; width: 170px; } }
+
+/* Efectos de pasar el mouse: solo en equipos con mouse */
+@media (hover: hover) {
+  .k-fab:hover .k-tip { opacity: 1; transform: translate(0, -50%); }
+  .k-btn:hover { transform: translateY(-2px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-k] { transform: none; }
+}

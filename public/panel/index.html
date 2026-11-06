@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es-AR" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Panel del local · Lo de Tito — Demostración</title>
+  <meta name="description" content="Panel del local de Lo de Tito: los pedidos de la app llegan al instante para aceptarlos, cocinarlos, despacharlos y cobrarlos. (Demostración)">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#e8a33d">
+  <link rel="manifest" href="/panel/manifest.webmanifest">
+  <link rel="icon" href="/assets/icons/panel-192.png" type="image/png">
+  <link rel="apple-touch-icon" href="/assets/icons/panel-180.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Tito Panel">
+  <link rel="preload" href="/assets/fonts/inter-f11d729bb0.woff2" as="font" type="font/woff2" crossorigin>
+  <style data-fuentes>
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-b27569daf1.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-87dbe96887.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-0f55e2505b.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/fraunces-48642176d9.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/fraunces-0f55e2505b.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 700; font-display: swap; src: url(/assets/fonts/fraunces-48642176d9.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/inter-cf3eb50fb2.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(/assets/fonts/inter-f11d729bb0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/inter-cf3eb50fb2.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 500; font-display: swap; src: url(/assets/fonts/inter-f11d729bb0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/inter-cf3eb50fb2.woff2) format('woff2'); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(/assets/fonts/inter-f11d729bb0.woff2) format('woff2'); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+  </style>
+  <link rel="stylesheet" href="/app.css?v=20261028a">
+  <link rel="stylesheet" href="panel.css?v=20261027">
+</head>
+<body class="panel">
+  <header class="p-top">
+    <div class="p-top-in">
+      <a class="marca" href="/" data-ir-app title="Abrir la app de los clientes">
+        <span class="logo" aria-hidden="true"><img src="/assets/icons/panel-192.png" alt="" width="40" height="40"></span>
+        <span><span class="marca-nom">Lo de <em>Tito</em></span><span class="marca-sub">Panel del local <span class="demo-chip">Demo</span></span></span>
+      </a>
+      <div class="p-acciones">
+        <label class="interruptor" title="Si está cerrado, la app no toma pedidos"><input type="checkbox" data-abierto><span class="int-pista"></span><span class="int-txt" data-abierto-txt>Abierto</span></label>
+        <button class="p-icono" type="button" data-sonido aria-pressed="false" aria-label="Sonido de pedidos nuevos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21a2 2 0 0 0 4 0"/></svg></button>
+      </div>
+    </div>
+    <nav class="p-tabs" aria-label="Secciones del panel">
+      <button type="button" data-ptab="pedidos" aria-current="page">Pedidos <span class="p-badge" data-badge hidden>0</span></button>
+      <button type="button" data-ptab="menu">Menú</button>
+      <button type="button" data-ptab="resumen">Resumen</button>
+      <button type="button" data-ptab="ajustes">Ajustes</button>
+    </nav>
+  </header>
+
+  <main class="p-main">
+    <h1 class="sr-only">Panel de pedidos de Lo de Tito</h1>
+    <!-- PEDIDOS -->
+    <section data-pvista="pedidos" aria-label="Pedidos">
+      <div class="p-barra">
+        <div class="p-filtros" role="group" aria-label="Ver pedidos">
+          <button type="button" data-filtro="activos" aria-pressed="true">En curso <b data-cuenta="activos">0</b></button>
+          <button type="button" data-filtro="historial" aria-pressed="false">Entregados y cancelados <b data-cuenta="historial">0</b></button>
+        </div>
+        <div class="p-barra-der">
+          <button class="btn btn-borde btn-chico" type="button" data-probar-celu>Probar con mi celular</button>
+          <button class="btn btn-ambar btn-chico" type="button" data-simular>Simular un pedido</button>
+        </div>
+      </div>
+      <div class="columnas" data-columnas hidden>
+        <section class="col" data-col="nuevo"><h2 class="col-tit">Nuevos <b data-cuenta="nuevo">0</b></h2><div class="col-lista" data-lista="nuevo"></div></section>
+        <section class="col" data-col="cocina"><h2 class="col-tit">En la cocina <b data-cuenta="cocina">0</b></h2><div class="col-lista" data-lista="cocina"></div></section>
+        <section class="col" data-col="salida"><h2 class="col-tit">Listos y en camino <b data-cuenta="salida">0</b></h2><div class="col-lista" data-lista="salida"></div></section>
+      </div>
+      <div class="historial" data-historial hidden></div>
+    </section>
+
+    <!-- MENÚ -->
+    <section data-pvista="menu" aria-label="Menú" hidden>
+      <div class="p-intro"><h2>Tu menú</h2><p>Cambiá un precio o marcá lo que se terminó: la app de tus clientes lo muestra al instante.</p></div>
+      <div class="p-menu" data-pmenu></div>
+    </section>
+
+    <!-- RESUMEN -->
+    <section data-pvista="resumen" aria-label="Resumen" hidden>
+      <div class="p-intro"><h2>Hoy en Lo de Tito</h2><p>Se actualiza solo con cada pedido.</p></div>
+      <div class="kpis" data-kpis></div>
+      <div class="p-grilla">
+        <div class="p-tarjeta"><h3>Cómo te pagaron</h3><div data-pagos></div></div>
+        <div class="p-tarjeta"><h3>Lo más pedido</h3><ol class="top" data-top></ol></div>
+      </div>
+    </section>
+
+    <!-- AJUSTES -->
+    <section data-pvista="ajustes" aria-label="Ajustes" hidden>
+      <div class="p-intro"><h2>Ajustes del local</h2></div>
+      <form class="p-tarjeta p-form" data-form-local>
+        <label class="campo" for="a-demora"><span>Demora de la cocina</span>
+          <select id="a-demora" name="demora">
+            <option value="15">15 minutos</option><option value="20">20 minutos</option><option value="25">25 minutos</option>
+            <option value="30">30 minutos</option><option value="40">40 minutos</option><option value="45">45 minutos</option><option value="60">1 hora</option>
+          </select></label>
+        <label class="campo" for="a-envio"><span>Costo del delivery</span><input id="a-envio" name="envio" type="number" inputmode="numeric" min="0" max="50000" step="100"></label>
+        <button class="btn btn-ambar" type="submit">Guardar</button>
+      </form>
+      <div class="p-tarjeta">
+        <h3>Compartí la app con tus clientes</h3>
+        <p>Mandá este link por WhatsApp o ponelo en tu Instagram. Se abre como una app y se instala en el celular.</p>
+        <div class="compartir" data-compartir></div>
+      </div>
+      <div class="p-tarjeta">
+        <h3>Este panel en la tablet de la cocina</h3>
+        <p>Instalalo como app y dejalo abierto: suena con cada pedido nuevo.</p>
+        <button class="btn btn-borde" type="button" data-instalar-panel>Instalar el panel</button>
+        <p class="nota-demo" data-instalar-ayuda hidden>En el celular: menú del navegador → "Agregar a la pantalla de inicio". En iPhone: Compartir → "Agregar a inicio".</p>
+      </div>
+      <div class="p-tarjeta p-peligro">
+        <h3>Empezar de cero</h3>
+        <p>Borra los pedidos de esta prueba y vuelve el menú a como estaba.</p>
+        <button class="btn btn-borde" type="button" data-reiniciar>Empezar de cero</button>
+      </div>
+      <p class="nota-demo">Demo: este panel es de tu local de prueba (solo lo ves vos y se borra a las 24 horas). En tu local, el panel se abre con tu clave y los pedidos quedan guardados.</p>
+    </section>
+  </main>
+
+  <!-- Bienvenida: activa el sonido -->
+  <div class="p-fondo" data-fondo="bienvenida" hidden>
+  <section class="p-modal" data-bienvenida role="dialog" aria-modal="true" aria-labelledby="bienv-tit">
+    <h2 id="bienv-tit">Así le llegan los pedidos a tu local</h2>
+    <ol class="bienv-pasos">
+      <li><b>Un cliente pide</b> desde la app de Lo de Tito (en su celular).</li>
+      <li><b>Acá suena</b> y aparece el pedido. Lo aceptás y le decís cuánto tarda.</li>
+      <li><b>Lo seguís</b> hasta que sale: cocina, listo, en camino y entregado. El cliente lo ve en vivo.</li>
+    </ol>
+    <p>Probalo: abrí la app en tu celular con el código QR, o tocá "Simular un pedido".</p>
+    <button class="btn btn-ambar btn-grande btn-ancho" type="button" data-empezar>Activar el sonido y empezar</button>
+  </section>
+  </div>
+
+  <!-- Probar con el celular (QR) -->
+  <div class="p-fondo" data-fondo="qr" hidden>
+  <section class="p-modal" data-qr role="dialog" aria-modal="true" aria-labelledby="qr-tit">
+    <button class="hoja-cerrar" type="button" data-cerrar-modal aria-label="Cerrar">×</button>
+    <h2 id="qr-tit">Pedí desde tu celular</h2>
+    <p>Escaneá el código con la cámara: se abre la app de Lo de Tito conectada a este panel. Hacé un pedido y mirá cómo llega acá.</p>
+    <div class="qr" data-qr-img></div>
+    <p class="qr-link"><span data-qr-link></span></p>
+    <div class="fila-botones"><button class="btn btn-borde" type="button" data-copiar-link>Copiar link</button><a class="btn btn-wa" href="#" data-mandar-link target="_blank" rel="noopener">Mandármelo por WhatsApp</a></div>
+  </section>
+  </div>
+
+  <!-- Elegir motivo / repartidor / demora -->
+  <section class="hoja" data-hoja="elegir" role="dialog" aria-modal="true" aria-labelledby="elegir-tit" hidden>
+    <button class="hoja-cerrar" type="button" data-cerrar-hoja aria-label="Cerrar">×</button>
+    <div class="hoja-in">
+      <h2 id="elegir-tit" class="plato-tit" data-elegir-tit></h2>
+      <p class="plato-desc" data-elegir-txt></p>
+      <div class="elegir-opciones" data-elegir-opciones></div>
+    </div>
+  </section>
+  <div class="velo" data-velo hidden></div>
+
+  <p class="toast" data-toast role="status" hidden></p>
+  <p class="p-nuevo" data-aviso-nuevo role="alert" hidden></p>
+  <button class="p-msj" type="button" data-aviso-msj hidden><svg class="ico-charla" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><span><b data-aviso-msj-tit></b><span data-aviso-msj-txt></span></span><small>Abrir chat</small></button>
+
+  <script defer src="/lib/manifest.js?v=20261026"></script>
+  <script defer src="/lib/charla.js?v=20261027"></script>
+  <script defer src="panel.js?v=20261027"></script>
+</body>
+</html>
